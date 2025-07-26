@@ -2,19 +2,18 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 18 # Just a placeholder — we’ll override it manually below
     commands:
-      - echo Installing Node.js 20 manually...
+      - echo Installing Node.js 20...
       - curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
       - apt-get install -y nodejs
       - node -v
       - npm -v
+      - npm install
   build:
     commands:
       - echo Build started on `date`
-      - npm install
       - npm run build
+
 artifacts:
   files:
     - '**/*'
